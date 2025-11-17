@@ -4,8 +4,22 @@
   "version": "${version}",
   "name": "More KubeJS Events",
   "description": "",
-  "authors": [],
-  "contact": {},
+  "authors": [
+    {
+      "name": "Brodino",
+      "contact": {
+        "homepage": "https://brodino.dev",
+        "github": "https://github.com/Brodino96",
+        "discord": "https://discord.gg/AMzvcACRTt",
+        "modrinth": "https://modrinth.com/user/brodino",
+        "curse": "https://www.curseforge.com/members/brodino/projects"
+      }
+    }
+  ],
+  "contact": {
+    "sources": "https://github.com/ElysiumCraftMC/MoreKubeJSEvents",
+    "issues": "https://github.com/ElysiumCraftMC/MoreKubeJSEvents/issues"
+  },
   "license": "GPL-3.0",
   "icon": "assets/morekubejsevents/icon.png",
   "environment": "server",
