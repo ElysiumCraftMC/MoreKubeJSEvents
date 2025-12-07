@@ -4,6 +4,7 @@
   "package": "net.brodino.morekubejsevents.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "Effects"
   ],
   "client": [
   ],
