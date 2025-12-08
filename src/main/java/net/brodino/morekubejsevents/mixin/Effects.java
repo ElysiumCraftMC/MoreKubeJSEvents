@@ -33,7 +33,7 @@ public class Effects {
         int effectAmplifier = effect.getAmplifier();
 
         if (MoreKubeJSEvents.CONFIG.getEnableLogs()) {
-            MoreKubeJSEvents.LOGGER.info("Added effect {} level {} to player: {}", effectId, effectAmplifier, player.getDisplayName());
+            MoreKubeJSEvents.LOGGER.info("Added effect {} level {} to player: {}", effectId, effectAmplifier, player.getDisplayName().getString());
         }
 
         Events.EFFECT_APPLICATION.post(new EffectApplicationEventJS(player, effectId.toString(), effectAmplifier));
@@ -54,7 +54,7 @@ public class Effects {
         int effectAmplifier = effect.getAmplifier();
 
         if (MoreKubeJSEvents.CONFIG.getEnableLogs()) {
-            MoreKubeJSEvents.LOGGER.info("Removed effect {} level {} from player: {}", effectId, effectAmplifier, player.getDisplayName());
+            MoreKubeJSEvents.LOGGER.info("Removed effect {} level {} from player: {}", effectId, effectAmplifier, player.getDisplayName().getString());
         }
 
         Events.EFFECT_REMOVAL.post(new EffectRemovalEventJS(player, effectId.toString(), effect.getAmplifier()));
