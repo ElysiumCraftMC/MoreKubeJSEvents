@@ -9,6 +9,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -33,7 +34,13 @@ public class Effects {
         int effectAmplifier = effect.getAmplifier();
 
         if (MoreKubeJSEvents.CONFIG.getEnableLogs()) {
-            MoreKubeJSEvents.LOGGER.info("Added effect {} level {} to player: {}", effectId, effectAmplifier, player.getDisplayName().getString());
+            MoreKubeJSEvents.LOGGER.info("Added effect {} level {} in dimension {}, to player {}, at coords {}",
+                    effectId,
+                    effect.getAmplifier(),
+                    player.getWorld().getDimension().effects(),
+                    player.getDisplayName().getString(),
+                    player.getPos()
+            );
         }
 
         Events.EFFECT_APPLICATION.post(new EffectApplicationEventJS(player, effectId.toString(), effectAmplifier));
@@ -51,10 +58,14 @@ public class Effects {
             return;
         }
 
-        int effectAmplifier = effect.getAmplifier();
-
         if (MoreKubeJSEvents.CONFIG.getEnableLogs()) {
-            MoreKubeJSEvents.LOGGER.info("Removed effect {} level {} from player: {}", effectId, effectAmplifier, player.getDisplayName().getString());
+            MoreKubeJSEvents.LOGGER.info("Removed effect {} level {} in dimension {}, from player {}, at coords {}",
+                    effectId,
+                    effect.getAmplifier(),
+                    player.getWorld().getDimension().effects(),
+                    player.getDisplayName().getString(),
+                    player.getPos()
+            );
         }
 
         Events.EFFECT_REMOVAL.post(new EffectRemovalEventJS(player, effectId.toString(), effect.getAmplifier()));
